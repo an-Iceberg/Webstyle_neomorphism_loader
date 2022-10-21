@@ -1,0 +1,123 @@
+*, *:is(::after, ::before) {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font: 1rem "Veranda", sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: nowrap;
+  background-color: #eaeef0;
+}
+body .loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: nowrap;
+  isolation: isolate;
+  position: relative;
+}
+body .loader .rocket, body .loader .rocket-shadow {
+  overflow: hidden;
+  position: absolute;
+  width: 50px;
+  rotate: -90deg;
+  z-index: 2;
+  animation: up, down;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+@keyframes up {
+  0% {
+    translate: 0 10px;
+  }
+  50% {
+    translate: 0 -10px;
+  }
+}
+@keyframes down {
+  50% {
+    translate: 0 -10px;
+  }
+  100% {
+    translate: 0 10px;
+  }
+}
+body .loader .rocket svg path, body .loader .rocket-shadow svg path {
+  fill: #ff518c;
+}
+body .loader .rocket-shadow {
+  width: 60px;
+  filter: blur(5px);
+  z-index: 1;
+}
+body .loader .rocket-shadow svg {
+  position: relative;
+  top: 4px;
+  left: -4px;
+}
+body .loader .rocket-shadow svg path {
+  fill: rgba(0, 0, 0, 0.7529411765);
+}
+body .loader .clouds {
+  position: absolute;
+  z-index: 0;
+  width: 40px;
+  filter: blur(1px);
+}
+body .loader .clouds svg path {
+  fill: #fff;
+}
+body .loader span {
+  overflow: hidden;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background-color: #eaeef0;
+  border-radius: 50%;
+  border: 6px solid #eaeef0;
+  box-shadow: -8px -8px 15px #fff, 8px 8px 25px rgba(0, 0, 0, 0.1490196078);
+}
+body .loader span::after, body .loader span::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+body .loader span::before {
+  inset: 0;
+  box-shadow: inset 10px 10px 20px rgba(0, 0, 0, 0.5019607843), inset -5px -5px 15px #fff;
+}
+body .loader span::after {
+  inset: 40px;
+  background-color: #eaeef0;
+  border: 6px solid #eaeef0;
+  box-shadow: -8px -8px 25px #fff, 8px 8px 25px rgba(0, 0, 0, 0.2509803922), inset 3px 3px 10px rgba(0, 0, 0, 0.1490196078), inset -1px -1px 15px #fff;
+}
+body .loader span .spinning-colors {
+  position: absolute;
+  inset: 0;
+  filter: blur(5px);
+  border-radius: 50%;
+  background-image: linear-gradient(#42abff, #ff4f8b, #ffeb3b);
+  animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
